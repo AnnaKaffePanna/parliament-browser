@@ -1,43 +1,35 @@
 import React from "react";
-import { View, Text, Image, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
+import { Avatar, ListItem } from "react-native-elements";
+
 import noImage from "../assets/no-image.png";
 
 export const MemberRow = ({ member }) => {
   return (
-    <View style={styles.container}>
-      <View style={styles.imageContainer}>
+    <>
+      <ListItem>
         {member.image && member.image.url ? (
-          <Image source={{ uri: member.image.url }} style={styles.image} />
+          <Avatar
+            size="large"
+            avatarStyle={{ marginBottom: -20 }}
+            rounded
+            source={{ uri: member.image.url }}
+          />
         ) : (
-          <Image source={noImage} style={styles.image} />
+          <Avatar
+            size="large"
+            avatarStyle={{ marginBottom: -20 }}
+            rounded
+            source={noImage}
+          />
         )}
-      </View>
-      <View style={styles.textContainer}>
-        <Text style={styles.text}>{member.name}</Text>
-        <Text style={styles.text}>{member.city}</Text>
-      </View>
-    </View>
+        <ListItem.Content>
+          <ListItem.Title>{member.name}</ListItem.Title>
+          <ListItem.Subtitle>{member.city}</ListItem.Subtitle>
+        </ListItem.Content>
+      </ListItem>
+    </>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: "row",
-    alignItems: "center",
-    padding: 10,
-  },
-  imageContainer: {
-    marginRight: 10,
-  },
-  image: {
-    width: 100,
-    height: 100,
-    resizeMode: "contain",
-  },
-  textContainer: {
-    flex: 1,
-  },
-  text: {
-    fontSize: 16,
-  },
-});
+const styles = StyleSheet.create({});
