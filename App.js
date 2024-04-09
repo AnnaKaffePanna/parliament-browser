@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { StyleSheet, Text, View, ScrollView } from "react-native";
+import { StyleSheet, Text, View, FlatList } from "react-native";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 
 import { MemberRow } from "./components/MemberRow";
@@ -43,11 +43,11 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <SafeAreaView>
-        <ScrollView>
-          {members.map((member) => (
-            <MemberRow key={member.id} member={member} />
-          ))}
-        </ScrollView>
+        <FlatList
+          data={members}
+          renderItem={({ item }) => <MemberRow member={item} />}
+          keyExtractor={(item) => item.id.toString()}
+        />
       </SafeAreaView>
     </SafeAreaProvider>
   );
