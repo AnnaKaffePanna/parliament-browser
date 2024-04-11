@@ -34,13 +34,13 @@ export default function MemberList({ navigation }) {
 
   if (searchText.trim() !== "") {
     const filteredStartsWith = members.filter((member) =>
-      member.name.toLowerCase().startsWith(searchText.toLowerCase())
+      member.name.toLowerCase().startsWith(searchText.toLowerCase()),
     );
     let remainingMembers = members.filter((member) =>
-      member.name.toLowerCase().includes(searchText.toLowerCase())
+      member.name.toLowerCase().includes(searchText.toLowerCase()),
     );
     remainingMembers = remainingMembers.filter(
-      (member) => !filteredStartsWith.includes(member)
+      (member) => !filteredStartsWith.includes(member),
     );
     filteredMembers = [...filteredStartsWith, ...remainingMembers];
   }
