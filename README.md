@@ -6,7 +6,7 @@
 - [x] Data is fetched from [api.lagtinget](https://api.lagtinget.ax/api/persons.json)
 - [x] Members of Parliment is shown in a [Flatlist](https://reactnative.dev/docs/flatlist?language=javascript)
 - [x] List utilizes one third party solution [React Native Elements](https://reactnativeelements.com/docs/components/listitem)
-- [ ] Handle routing with [React Navigation](https://reactnavigation.org/)
+- [x] Handle routing with [React Navigation](https://reactnavigation.org/)
 
 #### Should-have
 
