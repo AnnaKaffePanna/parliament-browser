@@ -1,10 +1,12 @@
 import React from "react";
-import { StyleSheet } from "react-native";
 import { Avatar, ListItem } from "react-native-elements";
 
 import noImage from "../assets/no-image.png";
 
 export const MemberRow = ({ member }) => {
+  // Remove numbers, "---", and the following space from the city string using regular expressions
+  const formattedCity = member.city.replace(/\d+ |-{3} /g, "");
+
   return (
     <>
       <ListItem>
@@ -25,11 +27,9 @@ export const MemberRow = ({ member }) => {
         )}
         <ListItem.Content>
           <ListItem.Title>{member.name}</ListItem.Title>
-          <ListItem.Subtitle>{member.city}</ListItem.Subtitle>
+          <ListItem.Subtitle>{formattedCity}</ListItem.Subtitle>
         </ListItem.Content>
       </ListItem>
     </>
   );
 };
-
-const styles = StyleSheet.create({});

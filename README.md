@@ -10,6 +10,6 @@
 
 #### Should-have
 
-- [ ] [Search field](https://reactnativeelements.com/docs/components/searchbar) for filtering through the members
+- [x] [Search field](https://reactnativeelements.com/docs/components/searchbar) for filtering through the members
 - [x] Members of Parliament is show as [avatars](https://reactnativeelements.com/docs/components/avatar) in the list
 - [ ] Utilizes mechanisms for managing application state, for example, through Context
