@@ -32,15 +32,24 @@ export default function MemberList({ navigation }) {
   let filteredMembers = members;
 
   if (searchText.trim() !== "") {
+    // Should priorities first names
     const filteredStartsWith = members.filter((member) =>
       member.name.toLowerCase().startsWith(searchText.toLowerCase())
     );
+
+    // Second priority is items which have the searchText ex. if
+    // we search L, Lars should be first but Albert should still
+    // be visible in the list
     let remainingMembers = members.filter((member) =>
       member.name.toLowerCase().includes(searchText.toLowerCase())
     );
+
+    // Remove duplicated from the list
     remainingMembers = remainingMembers.filter(
       (member) => !filteredStartsWith.includes(member)
     );
+
+    // Combine the search results
     filteredMembers = [...filteredStartsWith, ...remainingMembers];
   }
 
