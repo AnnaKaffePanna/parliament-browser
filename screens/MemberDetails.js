@@ -98,7 +98,7 @@ export default function MemberDetails({ route }) {
           {formattedCity && <Text>Hemort: {formattedCity}</Text>}
         </View>
       </CollapsibleSection>
-      <CollapsibleSection title="Kontakt Uppgifter">
+      <CollapsibleSection title="Kontaktuppgifter">
         <View style={styles.collapseTextContainer}>
           {details.phone && <Text>Telefon: {details.phone}</Text>}
           {details.email && <Text>Gmail: {details.email}</Text>}
