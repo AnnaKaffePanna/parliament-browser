@@ -1,7 +1,7 @@
+import { AntDesign } from "@expo/vector-icons";
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import Collapsible from "react-native-collapsible";
-import { AntDesign } from "@expo/vector-icons";
 
 export const CollapsibleSection = ({ title, children }) => {
   const [collapsed, setCollapsed] = useState(true);

@@ -7,16 +7,18 @@ const getAllMembers = async () => {
     const response = await axios.get(apiUrl + "/persons.json");
     return response.data;
   } catch (error) {
-    throw error;
+    console.error("Error fetching all members:", error);
+    return [];
   }
 };
 
-const getDetailsByOneMember = async (id) => {
+const getDetailsById = async (id) => {
   try {
     const response = await axios.get(apiUrl + "/persons/" + id);
     return response.data;
   } catch (error) {
-    throw error;
+    console.error("Error fetching details by id:", error);
+    return {};
   }
 };
 
@@ -25,13 +27,14 @@ const getRole = async (role) => {
     const response = await axios.get(apiUrl + "/roles/" + role);
     return response.data;
   } catch (error) {
-    throw error;
+    console.error("Error fetching role data:", error);
+    return {};
   }
 };
 
 const ApiService = {
   getAllMembers,
-  getDetailsByOneMember,
+  getDetailsById,
   getRole,
 };
 

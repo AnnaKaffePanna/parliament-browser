@@ -9,7 +9,6 @@ import ApiService from "../services/api";
 export default function MemberList({ navigation }) {
   const [members, setMembers] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
   const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
@@ -19,7 +18,7 @@ export default function MemberList({ navigation }) {
         setMembers(responseData);
         setLoading(false);
       } catch (error) {
-        setError(error);
+        console.error("Error fetching members:", error);
         setLoading(false);
       }
     };
@@ -34,13 +33,13 @@ export default function MemberList({ navigation }) {
 
   if (searchText.trim() !== "") {
     const filteredStartsWith = members.filter((member) =>
-      member.name.toLowerCase().startsWith(searchText.toLowerCase()),
+      member.name.toLowerCase().startsWith(searchText.toLowerCase())
     );
     let remainingMembers = members.filter((member) =>
-      member.name.toLowerCase().includes(searchText.toLowerCase()),
+      member.name.toLowerCase().includes(searchText.toLowerCase())
     );
     remainingMembers = remainingMembers.filter(
-      (member) => !filteredStartsWith.includes(member),
+      (member) => !filteredStartsWith.includes(member)
     );
     filteredMembers = [...filteredStartsWith, ...remainingMembers];
   }
@@ -48,15 +47,7 @@ export default function MemberList({ navigation }) {
   if (loading) {
     return (
       <View style={styles.container}>
-        <Text>Loading...</Text>
-      </View>
-    );
-  }
-
-  if (error) {
-    return (
-      <View style={styles.container}>
-        <Text>Error: {error.message}</Text>
+        <Text>Laddar...</Text>
       </View>
     );
   }

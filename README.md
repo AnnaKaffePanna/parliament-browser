@@ -2,7 +2,7 @@
 
 #### Must-have
 
-- [ ] Application must have atleast two pages
+- [x] Application must have atleast two pages
 - [x] Data is fetched from [api.lagtinget](https://api.lagtinget.ax/api/persons.json)
 - [x] Members of Parliment is shown in a [Flatlist](https://reactnative.dev/docs/flatlist?language=javascript)
 - [x] List utilizes one third party solution [React Native Elements](https://reactnativeelements.com/docs/components/listitem)

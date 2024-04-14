@@ -16,9 +16,7 @@ export default function MemberDetails({ route }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const yamlResponseData = await ApiService.getDetailsByOneMember(
-          member.id
-        );
+        const yamlResponseData = await ApiService.getDetailsById(member.id);
         const parsedDataAsJavaScriptObject = yaml.load(yamlResponseData);
         setDetails(parsedDataAsJavaScriptObject);
         if (
@@ -35,7 +33,9 @@ export default function MemberDetails({ route }) {
         if (parsedDataAsJavaScriptObject.birthday) {
           setBirthday(parsedDataAsJavaScriptObject.birthday);
         }
-      } catch (error) {}
+      } catch (error) {
+        console.error("Error fetching member details:", error);
+      }
     };
     fetchData();
   }, []);
@@ -93,9 +93,9 @@ export default function MemberDetails({ route }) {
       </View>
       <CollapsibleSection title="Allmänna Uppgifter">
         <View style={styles.collapseTextContainer}>
-          {details.profession && <Text>Profession: {details.profession}</Text>}
-          {birthday && <Text>Födelsetid: {formattedBirthday}</Text>}
+          {details.profession && <Text>Yrke: {details.profession}</Text>}
           {formattedCity && <Text>Hemort: {formattedCity}</Text>}
+          {birthday && <Text>Födelsetid: {formattedBirthday}</Text>}
         </View>
       </CollapsibleSection>
       <CollapsibleSection title="Kontaktuppgifter">
@@ -139,6 +139,7 @@ const styles = StyleSheet.create({
   period: {
     marginTop: 20,
     fontSize: 17,
+    marginBottom: 25,
   },
   image: {
     width: windowWidth * 0.8, // Adjust the width as needed
