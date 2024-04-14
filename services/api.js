@@ -20,9 +20,19 @@ const getDetailsByOneMember = async (id) => {
   }
 };
 
+const getRole = async (role) => {
+  try {
+    const response = await axios.get(apiUrl + "/roles/" + role);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
 const ApiService = {
   getAllMembers,
   getDetailsByOneMember,
+  getRole,
 };
 
 export default ApiService;
