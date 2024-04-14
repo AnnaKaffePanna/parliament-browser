@@ -53,7 +53,7 @@ export default function MemberDetails({ route }) {
             setRoleData(parsedDataAsJavaScriptObject);
           }
         } catch (error) {
-          // Handle errors
+          console.error("Error fetching addition role data:", error);
         }
       };
       fetchRoleData();
