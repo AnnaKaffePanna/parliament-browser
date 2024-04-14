@@ -11,8 +11,18 @@ const getAllMembers = async () => {
   }
 };
 
+const getDetailsByOneMember = async (id) => {
+  try {
+    const response = await axios.get(apiUrl + "/persons/" + id);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
 const ApiService = {
   getAllMembers,
+  getDetailsByOneMember,
 };
 
 export default ApiService;
